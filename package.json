@@ -4,12 +4,16 @@
   "description": "Generates random colour palettes!",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests/*"
+    "test": "mocha tests/*",
+    "build": "webpack --entry ./index.js --output ./dist/palettee.js",
+    "build-example": "webpack --entry ./example/scripts.js --output ./example/_build.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "chai": "^4.2.0",
-    "mocha": "^7.1.1"
+    "mocha": "^7.1.1",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
   }
 }

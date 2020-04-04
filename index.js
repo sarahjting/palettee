@@ -3,7 +3,7 @@ function Palettee() {
 }
 
 Palettee.prototype.generate = function generate() {
-    return [];
+    return ["#ff0000", "#00ff00", "#0000ff"];
 }
 
 const palettee = new Palettee();
