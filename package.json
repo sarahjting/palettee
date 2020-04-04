@@ -1,0 +1,15 @@
+{
+  "name": "palettee",
+  "version": "1.0.0",
+  "description": "Generates random colour palettes!",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/*"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.1.1"
+  }
+}
