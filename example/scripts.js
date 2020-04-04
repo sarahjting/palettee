@@ -3,7 +3,7 @@ const palettee = require("../index");
 document.getElementById("generate").onclick = refresh;
 
 function refresh() {
-    const colors = palettee.generate();
+    const colors = palettee.palette();
     let palette = `<div class="palette">`
         + colors.reduce((a,b) => a + `<div class="palette-color" style="background-color:${b}">${b}</div>`, '')
         + `</div>`;

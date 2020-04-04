@@ -1,8 +1,14 @@
+const colorcolor = require("colorcolor");
+
 function Palettee() {
     this.colors = [];
 }
 
-Palettee.prototype.generate = function generate() {
+Palettee.prototype.randomColor = function color() {
+
+}
+
+Palettee.prototype.palette = function palette() {
     return ["#ff0000", "#00ff00", "#0000ff"];
 }
 
