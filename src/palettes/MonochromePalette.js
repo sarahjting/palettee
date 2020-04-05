@@ -6,12 +6,7 @@ class MonochromePalette extends Palette {
         super(size);
     }
     generate(seed = null) {
-        if(seed === null) {
-            seed = Color.generateRandom();
-        }
-
-        // seed is the medium value
-        seed.s += Math.random() * 50; // weight towards brighter colors
+        if(seed === null) seed = Color.generateSeed();
 
         // randomise gradient
         let vTilt = Math.random() * 100;

@@ -47,6 +47,11 @@ class Color {
             Math.random() * 100,
         ]);
     }
+    static generateSeed() {
+        const seed = Color.generateRandom();
+        seed.s += Math.random() * 50; // weight towards brighter colors
+        return seed;
+    }
     static generateComplement(seed, variation = 0) {
         return new Color([
             seed.h + 180 + (Math.random() * variation * 2 - variation),
