@@ -4,10 +4,14 @@ document.getElementById("generate").onclick = refresh;
 
 function refresh() {
     let palettes = "";
-    for(let i = 0; i < 100; i ++) {
-        const colors = palettee.palette(5);
+    for(let i = 0; i < 50; i ++) {
+        const colors = palettee.palette({
+            size: 5,
+            format: "palette",
+        });
         palettes += `<div class="palette">`
-            + colors.reduce((a,b) => a + `<div class="palette-color" style="background-color:${b}"><span>${b}</span></div>`, '')
+            + colors.hex().reduce((a,b) => a + `<div class="palette-color" style="background-color:${b}"><span>${b}</span></div>`, '')
+            + `<div class="palette-scheme">${colors.scheme}</div>`
             + `</div>`;
     }
     document.getElementById("results").innerHTML = palettes;
