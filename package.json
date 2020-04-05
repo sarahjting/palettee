@@ -1,7 +1,11 @@
 {
   "name": "palettee",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Generates random colour palettes!",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/sarahjting/palettee.git"
+  },
   "main": "index.js",
   "scripts": {
     "test": "mocha tests/*",
