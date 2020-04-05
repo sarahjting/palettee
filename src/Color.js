@@ -40,6 +40,13 @@ class Color {
         return new Color(this.color);
     }
 
+    isDark() {
+        return this.v < 50;
+    }
+    isLight() {
+        return !this.isDark();
+    }
+
     static generateRandom() {
         return new Color([
             Math.random() * 360,

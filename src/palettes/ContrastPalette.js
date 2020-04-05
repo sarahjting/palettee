@@ -16,8 +16,8 @@ class ContrastPalette extends Palette {
         right.v = Math.random() * 20;
         right.s = Math.random() * 100;
 
-        const complement = Color.generateComplement(seed, 60);
-        complement.v += Math.random() * 50;
+        const complement = Color.generateComplement(seed, 30);
+        complement.v = Math.random() * 50 + 50;
         complement.s += Math.random() * 50;
         const complementRight = complement.clone();
         complementRight.v -= Math.random() * 40 + 10;

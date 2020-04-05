@@ -66,8 +66,6 @@ class Palettee {
             palette = new ContrastPalette(options.size).generate();
         } else if(scheme === "gradient") {
             palette = new GradientPalette(options.size).generate(2);
-        } else if(scheme === "gradient-trio") {
-            palette = new GradientPalette(options.size).generate(3);
         } else if(scheme === "gradient-multi") {
             palette = new GradientPalette(options.size).generate(0);
         } else {
@@ -81,8 +79,9 @@ class Palettee {
         }
     }
 
-    color() {
-        return Color.generateRandom().hex;
+    color({format}) {
+        const color = Color.generateRandom();
+        return format === "palettee" ? color : color.hex;
     }
 
     static get schemes() {
@@ -90,7 +89,6 @@ class Palettee {
             "monochrome",
             "contrast",
             "gradient",
-            "gradient-trio",
             "gradient-multi",
         ];
     }

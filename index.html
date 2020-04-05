@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <title>palettee!</title>
         <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="example/style.css">
@@ -8,7 +9,23 @@
     <body>
         <div class="container">
             <h1>Palettee</h1>
-            <button id="generate">Generate</button>
+            <div class="form" id="form">
+                <div class="form-row">
+                    <div class="form-row-header">
+                        Number of colors
+                    </div>
+                    <div class="form-row-body">
+                        <select id="form-select"></select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-row-header">
+                        Generator schemes
+                    </div>
+                    <div class="form-row-body" id="form-filters"></div>
+                </div>
+                <button id="generate">Generate</button>
+            </div>
             <div id="results"></div>
         </div>
         <script src="example/_build.js"></script>
