@@ -1,6 +1,7 @@
 const Color = require("./Color");
 const MonochromePalette = require('./palettes/MonochromePalette');
 const ComplementaryContrastPalette = require('./palettes/ComplementaryContrastPalette');
+const GradientPalette = require('./palettes/GradientPalette');
 
 class Palettee {
     constructor(inOptions = {}) {
@@ -60,20 +61,29 @@ class Palettee {
         const scheme = options.scheme[Math.floor(Math.random() * options.scheme.length)];
 
         if(scheme === "monochrome") {
-            palette = new MonochromePalette(options.size);
+            palette = new MonochromePalette(options.size).generate();
         } else if(scheme === "complementary-contrast") {
-            palette = new ComplementaryContrastPalette(options.size);
+            palette = new ComplementaryContrastPalette(options.size).generate();
+        } else if(scheme === "gradient") {
+            palette = new GradientPalette(options.size).generate(2);
+        } else if(scheme === "gradient-trio") {
+            palette = new GradientPalette(options.size).generate(3);
+        } else if(scheme === "gradient-multi") {
+            palette = new GradientPalette(10).generate(0);
         } else {
             throw new Error("Invalid scheme provided for palette generation.");
         }
 
-        return palette.generate().hex();
+        return palette.hex();
     }
 
     static get schemes() {
         return [
             "monochrome",
-            "complementary-contrast"
+            "complementary-contrast",
+            "gradient",
+            "gradient-trio",
+            "gradient-multi",
         ];
     }
 }
