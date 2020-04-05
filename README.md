@@ -1,6 +1,11 @@
 # palettee
 Generates a random colour palette.
 
+# Installation
+```
+npm install palettee
+```
+
 # Usage
 
 ## Basic Usage
