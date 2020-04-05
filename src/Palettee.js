@@ -2,8 +2,8 @@ const Color = require("./Color");
 const MonochromePalette = require('./palettes/MonochromePalette');
 
 class Palettee {
-    palette() {
-        const palette = new MonochromePalette();
+    palette(size) {
+        const palette = new MonochromePalette(size);
         return palette.generate().hex();
     }
 

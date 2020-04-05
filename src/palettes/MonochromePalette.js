@@ -2,13 +2,34 @@ const Palette = require('./Palette');
 const Color = require('../Color');
 
 class MonochromePalette extends Palette {
+    constructor(size ) {
+        super(size);
+    }
     generate(seed = null) {
         if(seed === null) {
             seed = Color.generateRandom();
         }
-        for(let value = 0; value <= 100; value += 100 / this.size) {
-            this.colors.push(new Color([seed.h, seed.s, value]));
-        }
+
+        // seed is the medium value
+        seed.s += Math.random() * 50; // weight towards brighter colors
+
+        // randomise gradient
+        let vTilt = Math.random() * 100;
+        let sTilt = Math.random() * 100;
+        if(Math.round(Math.random())) vTilt *= -1;
+        if(Math.round(Math.random())) sTilt *= -1;
+
+        // get left color
+        const left = seed.clone();
+        left.v -= vTilt;
+        left.s -= sTilt;
+
+        // get right color
+        const right = seed.clone();
+        right.v += vTilt;
+        right.s += sTilt;
+
+        this.colors = this.range(this.size, left, right);
         return this;
     }
 }

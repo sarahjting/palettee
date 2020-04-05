@@ -18,4 +18,9 @@ describe('color', () => {
         const color = Color.generateRandom();
         expect(color).to.be.an.instanceof(Color);
     });
+    it('should generate a complementary color', () => {
+        const color = Color.generateRandom();
+        const complement = Color.generateComplement(color);
+        expect(Math.abs(complement.h - color.h)).to.equal(180);
+    });
 });
