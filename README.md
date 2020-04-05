@@ -1,6 +1,8 @@
 # palettee
 Generates a random colour palette.
 
+<a href="https://sarahjting.github.io/palettee/">Check out the demo!</a>
+
 # Installation
 ```
 npm install palettee
