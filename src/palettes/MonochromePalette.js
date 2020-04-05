@@ -9,7 +9,6 @@ class MonochromePalette extends Palette {
         for(let value = 0; value <= 100; value += 100 / this.size) {
             this.colors.push(new Color([seed.h, seed.s, value]));
         }
-        console.log(this.colors);
         return this;
     }
 }
