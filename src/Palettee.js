@@ -79,7 +79,7 @@ class Palettee {
         }
     }
 
-    color({format}) {
+    color({format} = {}) {
         const color = Color.generateRandom();
         return format === "palettee" ? color : color.hex;
     }

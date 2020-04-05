@@ -1,14 +1,27 @@
 const expect = require('chai').expect;
-const palettee = require("../index");
 const Color = require("../src/Color");
+const Palettee = require("../src/Palettee");
 const Palette = require("../src/palettes/Palette");
 
+const palettee = new Palettee();
 describe('palettee', () => {
     it('should initialise a default options object', () => {
         expect(palettee.options).to.be.an('object');
         expect(palettee.options.size).to.be.a('number');
         expect(palettee.options.scheme).to.be.an('array');
         expect(palettee.options.format).to.be.a('string');
+    });
+    describe("colour generator", () => {
+        it('should generate a color', () => {
+            const result = palettee.color();
+            expect(result).to.be.a('string');
+            expect(result.length).to.equal(7);
+            expect(result[0]).to.equal('#');
+        });
+        it('should generate a color with format settings', () => {
+            const result = palettee.color({format: "palettee"});
+            expect(result).to.be.instanceOf(Color);
+        });
     });
     describe("palette generator with default settings", () => {
         const results = palettee.palette();

@@ -23,4 +23,14 @@ describe('color', () => {
         const complement = Color.generateComplement(color);
         expect(Math.abs(complement.h - color.h)).to.equal(180);
     });
+    it('should identify light colors', () => {
+        const color = new Color([0, 0, 100]);
+        expect(color.isLight()).to.be.true;
+        expect(color.isDark()).to.be.false;
+    });
+    it('should identify dark colors', () => {
+        const color = new Color([0, 0, 0]);
+        expect(color.isLight()).to.be.false;
+        expect(color.isDark()).to.be.true;
+    });
 });
