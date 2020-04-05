@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha tests/*",
     "build": "webpack --entry ./index.js --output ./dist/palettee.js",
-    "build-example": "webpack --entry ./example/scripts.js --output ./example/_build.js"
+    "build-example": "webpack --entry ./example/scripts.js --output example/build.js"
   },
   "author": "",
   "license": "ISC",
