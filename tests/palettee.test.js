@@ -72,7 +72,7 @@ describe('palettee', () => {
             expect(results[0][0]).to.equal('#');
         });
         it('should return palette format', () => {
-            const results = palettee.palette({format: "palette"});
+            const results = palettee.palette({format: "palettee"});
             expect(results).to.be.instanceOf(Palette);
         });
     });
