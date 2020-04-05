@@ -45,7 +45,7 @@ class Palettee {
         }
 
         if(inOptions.format !== undefined) {
-            if(inOptions.format !== "hex") {
+            if(!Palettee.formats.includes(inOptions.format)) {
                 throw new TypeError("Invalid format argument provided.");
             }
             options.format = inOptions.format;
@@ -69,12 +69,16 @@ class Palettee {
         } else if(scheme === "gradient-trio") {
             palette = new GradientPalette(options.size).generate(3);
         } else if(scheme === "gradient-multi") {
-            palette = new GradientPalette(10).generate(0);
+            palette = new GradientPalette(options.size).generate(0);
         } else {
             throw new Error("Invalid scheme provided for palette generation.");
         }
 
-        return palette.hex();
+        if(options.format === "hex") {
+            return palette.hex();
+        } else if(options.format === "palette") {
+            return palette;
+        }
     }
 
     static get schemes() {
@@ -84,6 +88,12 @@ class Palettee {
             "gradient",
             "gradient-trio",
             "gradient-multi",
+        ];
+    }
+    static get formats() {
+        return [
+            "hex",
+            "palette"
         ];
     }
 }

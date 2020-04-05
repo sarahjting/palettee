@@ -4,10 +4,14 @@ const Color = require('../Color');
 class GradientPalette extends Palette {
     constructor(size) {
         super(size);
+        this.scheme = "gradient";
     }
     generate(number = 0) {
         if(number === 0) {
             number = Math.floor(Math.random() * (Math.floor(this.size/3))) + 2;
+        }
+        if(number > 2) {
+            this.scheme = "gradient-multi";
         }
 
         const gradientStops = [];

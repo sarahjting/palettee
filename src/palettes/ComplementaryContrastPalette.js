@@ -4,6 +4,7 @@ const Color = require('../Color');
 class ComplementaryContrastPalette extends Palette {
     constructor(size) {
         super(size);
+        this.scheme = "complementary-contrast";
     }
     generate(seed = null) {
         if(seed === null) seed = Color.generateSeed();

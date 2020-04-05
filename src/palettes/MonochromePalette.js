@@ -4,6 +4,7 @@ const Color = require('../Color');
 class MonochromePalette extends Palette {
     constructor(size) {
         super(size);
+        this.scheme = "monochrome";
     }
     generate(seed = null) {
         if(seed === null) seed = Color.generateSeed();

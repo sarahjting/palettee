@@ -63,4 +63,17 @@ describe('palettee', () => {
             expect(() => palettee.palette({scheme: ["monochrome", "foo", "complementary-contrast"]})).to.throw(`Invalid scheme "foo" provided.`);
         });
     });
+    describe("palette generator with format", () => {
+        it('should return hex format', () => {
+            const results = palettee.palette({format: "hex"});
+            expect(results).to.be.an('array');
+            expect(results[0]).to.be.a('string');
+            expect(results[0].length).to.equal(7);
+            expect(results[0][0]).to.equal('#');
+        });
+        it('should return palette format', () => {
+            const results = palettee.palette({format: "palette"});
+            expect(results).to.be.instanceOf(Palette);
+        });
+    });
 });
