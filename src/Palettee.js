@@ -21,14 +21,14 @@ class Palettee {
             throw new TypeError("Invalid options argument provided.")
         }
 
-        if(inOptions.size) {
+        if(inOptions.size !== undefined) {
             if(typeof inOptions.size !== "number" || inOptions.size < 1) {
                 throw new TypeError("Invalid size argument provided.");
             }
             options.size = inOptions.size;
         }
 
-        if(inOptions.scheme) {
+        if(inOptions.scheme !== undefined) {
             if(typeof inOptions.scheme === "string") {
                 inOptions.scheme = [inOptions.scheme];
             }
@@ -36,14 +36,14 @@ class Palettee {
                 throw new TypeError("Invalid scheme argument provided.");
             }
             inOptions.scheme.forEach(scheme => {
-                if(!Palettee.scheme.contains(scheme)) {
+                if(!Palettee.schemes.includes(scheme)) {
                     throw new TypeError(`Invalid scheme "${scheme}" provided.`);
                 }
             })
             options.scheme = inOptions.scheme;
         }
 
-        if(inOptions.format) {
+        if(inOptions.format !== undefined) {
             if(inOptions.format !== "hex") {
                 throw new TypeError("Invalid format argument provided.");
             }
