@@ -76,9 +76,13 @@ class Palettee {
 
         if(options.format === "hex") {
             return palette.hex();
-        } else if(options.format === "palette") {
+        } else if(options.format === "palettee") {
             return palette;
         }
+    }
+
+    color() {
+        return Color.generateRandom().hex;
     }
 
     static get schemes() {
@@ -93,7 +97,7 @@ class Palettee {
     static get formats() {
         return [
             "hex",
-            "palette"
+            "palettee"
         ];
     }
 }

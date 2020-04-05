@@ -7,7 +7,7 @@ function refresh() {
     for(let i = 0; i < 50; i ++) {
         const colors = palettee.palette({
             size: 5,
-            format: "palette",
+            format: "palettee",
         });
         palettes += `<div class="palette">`
             + colors.hex().reduce((a,b) => a + `<div class="palette-color" style="background-color:${b}"><span>${b}</span></div>`, '')
