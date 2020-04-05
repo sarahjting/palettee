@@ -54,13 +54,13 @@ describe('palettee', () => {
             expect(results).to.be.an('array');
         });
         it('should take multiple schemes as an array', () => {
-            const results = palettee.palette({scheme: ["monochrome", "complementary-contrast"]});
+            const results = palettee.palette({scheme: ["monochrome", "contrast"]});
             expect(results).to.be.an('array');
         });
         it('should throw an error for invalid schemes', () => {
             expect(() => palettee.palette({scheme: "foo"})).to.throw(`Invalid scheme "foo" provided.`);
             expect(() => palettee.palette({scheme: ["foo"]})).to.throw(`Invalid scheme "foo" provided.`);
-            expect(() => palettee.palette({scheme: ["monochrome", "foo", "complementary-contrast"]})).to.throw(`Invalid scheme "foo" provided.`);
+            expect(() => palettee.palette({scheme: ["monochrome", "foo", "contrast"]})).to.throw(`Invalid scheme "foo" provided.`);
         });
     });
     describe("palette generator with format", () => {

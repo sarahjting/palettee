@@ -1,6 +1,6 @@
 const Color = require("./Color");
 const MonochromePalette = require('./palettes/MonochromePalette');
-const ComplementaryContrastPalette = require('./palettes/ComplementaryContrastPalette');
+const ContrastPalette = require('./palettes/ContrastPalette');
 const GradientPalette = require('./palettes/GradientPalette');
 
 class Palettee {
@@ -62,8 +62,8 @@ class Palettee {
 
         if(scheme === "monochrome") {
             palette = new MonochromePalette(options.size).generate();
-        } else if(scheme === "complementary-contrast") {
-            palette = new ComplementaryContrastPalette(options.size).generate();
+        } else if(scheme === "contrast") {
+            palette = new ContrastPalette(options.size).generate();
         } else if(scheme === "gradient") {
             palette = new GradientPalette(options.size).generate(2);
         } else if(scheme === "gradient-trio") {
@@ -84,7 +84,7 @@ class Palettee {
     static get schemes() {
         return [
             "monochrome",
-            "complementary-contrast",
+            "contrast",
             "gradient",
             "gradient-trio",
             "gradient-multi",

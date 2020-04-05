@@ -1,10 +1,10 @@
 const Palette = require('./Palette');
 const Color = require('../Color');
 
-class ComplementaryContrastPalette extends Palette {
+class ContrastPalette extends Palette {
     constructor(size) {
         super(size);
-        this.scheme = "complementary-contrast";
+        this.scheme = "contrast";
     }
     generate(seed = null) {
         if(seed === null) seed = Color.generateSeed();
@@ -33,5 +33,5 @@ class ComplementaryContrastPalette extends Palette {
     }
 }
 
-module.exports = ComplementaryContrastPalette;
-module.exports.default = ComplementaryContrastPalette;
+module.exports = ContrastPalette;
+module.exports.default = ContrastPalette;
