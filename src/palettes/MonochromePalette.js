@@ -2,7 +2,7 @@ const Palette = require('./Palette');
 const Color = require('../Color');
 
 class MonochromePalette extends Palette {
-    constructor(size ) {
+    constructor(size) {
         super(size);
     }
     generate(seed = null) {
@@ -16,18 +16,17 @@ class MonochromePalette extends Palette {
         // randomise gradient
         let vTilt = Math.random() * 100;
         let sTilt = Math.random() * 100;
-        if(Math.round(Math.random())) vTilt *= -1;
         if(Math.round(Math.random())) sTilt *= -1;
 
         // get left color
         const left = seed.clone();
-        left.v -= vTilt;
-        left.s -= sTilt;
+        left.v += vTilt;
+        left.s += sTilt;
 
         // get right color
         const right = seed.clone();
-        right.v += vTilt;
-        right.s += sTilt;
+        right.v -= vTilt;
+        right.s -= sTilt;
 
         this.colors = this.range(this.size, left, right);
         return this;
