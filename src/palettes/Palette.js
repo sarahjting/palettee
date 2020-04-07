@@ -1,8 +1,13 @@
 const Color = require('../Color');
 
 class Palette {
+    /**
+     * Constructs a Palette.
+     * @param size
+     */
     constructor(size = 5) {
-        // https://ilikekillnerds.com/2015/06/abstract-classes-in-javascript/
+        // Credit to https://ilikekillnerds.com/2015/06/abstract-classes-in-javascript/ for the idea of faking
+        // an abstract class.
         if (this.constructor === Palette) {
             throw new TypeError('Abstract class "Palette" cannot be instantiated directly.');
         }
@@ -40,6 +45,10 @@ class Palette {
         return result;
     }
 
+    /**
+     * Returns all colors of the palette formatted as hex strings.
+     * @returns [string]
+     */
     hex() {
         return this.colors.map(color => color.hex);
     }

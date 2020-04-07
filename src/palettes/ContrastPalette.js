@@ -2,10 +2,19 @@ const Palette = require('./Palette');
 const Color = require('../Color');
 
 class ContrastPalette extends Palette {
+    /**
+     * Constructs a Palette.
+     * @param size
+     */
     constructor(size) {
         super(size);
         this.scheme = "contrast";
     }
+
+    /**
+     * Generates random colors for the Palette.
+     * @param size
+     */
     generate(seed = null) {
         if(seed === null) seed = Color.generateSeed();
 

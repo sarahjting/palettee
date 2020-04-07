@@ -4,6 +4,10 @@ const ContrastPalette = require('./palettes/ContrastPalette');
 const GradientPalette = require('./palettes/GradientPalette');
 
 class Palettee {
+    /**
+     * Constructs a Palettee Palette & Color generator object.
+     * @param inOptions
+     */
     constructor(inOptions = {}) {
         this.options = {
             size: 5,
@@ -13,6 +17,11 @@ class Palettee {
         this.options = this.loadOptions(inOptions);
     }
 
+    /**
+     * Validates an options object.
+     * @param inOptions
+     * @returns Object
+     */
     loadOptions(inOptions) {
         const options = {...this.options};
 
@@ -54,6 +63,11 @@ class Palettee {
         return options;
     }
 
+    /**
+     * Generates a random palette.
+     * @param options
+     * @returns Palette | string
+     */
     palette(options = {}) {
         let palette = null;
 
@@ -79,11 +93,20 @@ class Palettee {
         }
     }
 
+    /**
+     * Generates a random color.
+     * @param options
+     * @returns Color | string
+     */
     color({format} = {}) {
         const color = Color.generateRandom();
         return format === "palettee" ? color : color.hex;
     }
 
+    /**
+     * Returns array of all possible schemes.
+     * @returns [string]
+     */
     static get schemes() {
         return [
             "monochrome",
@@ -92,6 +115,11 @@ class Palettee {
             "gradient-multi",
         ];
     }
+
+    /**
+     * Returns array of all possible formats.
+     * @returns [string]
+     */
     static get formats() {
         return [
             "hex",

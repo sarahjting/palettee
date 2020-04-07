@@ -2,10 +2,19 @@ const Palette = require('./Palette');
 const Color = require('../Color');
 
 class GradientPalette extends Palette {
+    /**
+     * Constructs a Palette.
+     * @param size
+     */
     constructor(size) {
         super(size);
         this.scheme = "gradient";
     }
+
+    /**
+     * Generates random colors for the Palette.
+     * @param size
+     */
     generate(number = 0) {
         if(number === 0) {
             number = Math.floor(Math.random() * (Math.floor(this.size/3))) + 2;
